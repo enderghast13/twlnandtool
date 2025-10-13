@@ -220,13 +220,10 @@ namespace crypto {
         std::memcpy(xorpad64, xorpad, 16);
         std::memcpy(in64, in, 16);
 
-#if !defined(__BYTE_ORDER__) || (__BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__) // little endian, highly likely
+        // Host endianness doesn't matter here
         out64[0] = in64[0] ^ __builtin_bswap64(xorpad64[1]);
         out64[1] = in64[1] ^ __builtin_bswap64(xorpad64[0]);
-#else
-        out64[0] = in64[0] ^ xorpad64[1];
-        out64[1] = in64[1] ^ xorpad64[0];
-#endif
+
         std::memcpy(out, out64, 16);
     }
 
