@@ -12,7 +12,8 @@
 static constexpr size_t EstimatedL2CacheSize = 512u << 10;
 
 /// Work buffer alignment (must be at least 16 and a divisor of allocated size).
-static constexpr size_t WorkBufferAlignment  = 16u;
+/// Choose 64 because it is a common cache line size.
+static constexpr size_t WorkBufferAlignment  = 64u;
 
 /// @brief Work buffer size.
 /// @note  Chosen so that xorpad in \ref crypto::RunTwlAesCtrInPlace often exactly

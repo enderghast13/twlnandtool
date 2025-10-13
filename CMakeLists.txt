@@ -63,5 +63,4 @@ target_compile_definitions(FatFs PUBLIC FF_CONF_ADDENDUM=\"${CMAKE_CURRENT_LIST_
 target_link_libraries(twlnandtool PRIVATE ${Nettle_LIBRARY} ${GMP_C_LIBRARIES} FatFsPP)
 target_include_directories(twlnandtool PRIVATE ${Nettle_INCLUDE_DIR} ${GMP_C_INCLUDES})
 target_compile_options(twlnandtool PRIVATE -Wall -Wextra -Wpedantic)
-# Use the following for max performance on your machine (gains are approx 128 MiB/s):
-#target_compile_options(twlnandtool PRIVATE -O3 -march=native)
+target_compile_options(twlnandtool PRIVATE -O3 -ftree-vectorize)

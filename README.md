@@ -9,7 +9,7 @@ TWL decryption tool (NAND/modcrypt/firmware) with a focus on maximum performance
   - `twlnandtool` properly derives encryption keys, and not just for NAND Flash firmware: NAND/NTRCARD/NOR dumps are all supported
 - `twltool` not flipping the "modcrypt enable" flag in the resulting file, when performing "modcrypt" encryption/decryption
 
-On my MacBook Air M4 10C, it is able to encrypt/decrypt NAND at a rate between 1.0 GiB/s when cold-loaded from SSD, to 3.0GiB/s when in disk cache (1.7 MiB/s on 5900X). This usually is at least 6 times faster than `twltool` and at least 50 times faster than `ninfs` for the same task.
+On my MacBook Air M4 10C, it is able to encrypt/decrypt NAND at a rate between 1.1 GiB/s when cold-loaded from SSD, to 3.2~3.5GiB/s when in disk cache (1.7 GiB/s on 5900X). This is usually at least 6 times faster than `twltool`.
 
 `twlnandtool` is written in C++14, as an exercise and because it originally targeted GCC versions as low as GCC 7.1, for maximum compatibility.
 
