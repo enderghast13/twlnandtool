@@ -3,7 +3,8 @@
 
 #include "crypto_sha.hpp"
 
-#include <nettle/sha.h>
+#include <nettle/sha1.h>
+#include <nettle/sha2.h>
 
 namespace crypto {
 
@@ -12,7 +13,7 @@ namespace crypto {
 
         sha1_init(&ctx);
         sha1_update(&ctx, sz, data);
-        sha1_digest(&ctx, sz, outDigest);
+        sha1_digest(&ctx, outDigest);
     }
 
     void Sha256(u8 outDigest[Sha256DigestSize], const u8 *data, size_t sz) {
@@ -20,6 +21,6 @@ namespace crypto {
 
         sha256_init(&ctx);
         sha256_update(&ctx, sz, data);
-        sha256_digest(&ctx, sz, outDigest);
+        sha256_digest(&ctx, outDigest);
     }
 }
